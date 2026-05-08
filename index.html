@@ -11,18 +11,24 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
         .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .gradient-text { background: linear-gradient(135deg, #60a5fa, #c084fc, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .bg-pattern { background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px; }
-        .geometric-shape { position: absolute; z-index: -1; filter: blur(80px); opacity: 0.4; animation: pulse 10s infinite alternate; }
-        @keyframes pulse { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.2) translate(20px, 40px); } }
+        .bg-pattern { background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 30px 30px; }
+        @media (min-width: 768px) { .bg-pattern { background-size: 40px 40px; } }
+        .geometric-shape { position: absolute; z-index: -1; filter: blur(80px); opacity: 0.3; animation: pulse 10s infinite alternate; }
+        @keyframes pulse { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.1) translate(10px, 20px); } }
         .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(96, 165, 250, 0.5); box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5); }
+        @media (hover: hover) {
+            .card-hover:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(96, 165, 250, 0.5); box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5); }
+        }
     </style>
 </head>
 <body class="bg-pattern min-h-screen">
-    <nav class="p-8">
-        <div class="max-w-7xl mx-auto flex items-center">
+    <div class="geometric-shape bg-blue-600 w-64 h-64 md:w-96 md:h-96 top-[-50px] left-[-50px] md:top-[-100px] md:left-[-100px] rounded-full"></div>
+    <div class="geometric-shape bg-purple-600 w-80 h-80 md:w-[500px] md:h-[500px] bottom-[-100px] right-[-50px] md:bottom-[-200px] md:right-[-100px] rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
+        <nav class="flex items-center justify-center md:justify-start mb-12 md:mb-20">
             
-    <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="inline-block mr-3">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 md:w-10 md:h-10 inline-block mr-2 md:mr-3">
         <path d="M50 5L90 27.5V72.5L50 95L10 72.5V27.5L50 5Z" stroke="url(#logo_grad)" stroke-width="8" stroke-linejoin="round"/>
         <path d="M30 40L50 70L70 40" stroke="#f8fafc" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
         <defs>
@@ -33,24 +39,20 @@
         </defs>
     </svg>
     
-            <span class="text-2xl font-black tracking-tighter uppercase gradient-text">VentureMachine</span>
-        </div>
-    </nav>
-    <div class="geometric-shape bg-blue-600 w-96 h-96 top-[-100px] left-[-100px] rounded-full"></div>
-    <div class="geometric-shape bg-purple-600 w-[500px] h-[500px] bottom-[-200px] right-[-100px] rounded-full"></div>
+            <span class="text-xl md:text-2xl font-black tracking-tighter uppercase gradient-text leading-none">VentureMachine</span>
+        </nav>
 
-    <div class="max-w-7xl mx-auto px-6 py-12">
-        <header class="relative text-center mb-24 pt-12">
-            <div class="inline-block px-4 py-1.5 mb-6 glass rounded-full text-xs font-bold tracking-widest text-blue-400 border border-blue-500/20 uppercase">
+        <header class="relative text-center mb-16 md:mb-24 px-4">
+            <div class="inline-block px-3 py-1 mb-4 md:mb-6 glass rounded-full text-[10px] md:text-xs font-bold tracking-widest text-blue-400 border border-blue-500/20 uppercase">
                 Autonomous Business Engine v2.5
             </div>
-            <h1 class="text-6xl md:text-8xl font-extrabold mb-8 gradient-text tracking-tighter">VentureMachine</h1>
-            <p class="text-slate-400 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
-                The world's first automated AI factory. Direct acquisition for businesses built by autonomous agents.
+            <h1 class="text-4xl md:text-8xl font-extrabold mb-6 md:mb-8 gradient-text tracking-tighter leading-tight">VentureMachine</h1>
+            <p class="text-slate-400 text-base md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
+                The world's first automated AI factory. Direct acquisition for high-performance businesses built by autonomous agents.
             </p>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
 
             <a href="localbiz-ai-voice-receptionist.html" class="card-hover glass rounded-[32px] p-2 border border-white/5 flex flex-col group">
                 <div class="relative overflow-hidden rounded-[26px] aspect-video">
@@ -58,14 +60,14 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent opacity-60"></div>
                 </div>
                 
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white tracking-tight mb-2">LocalBiz AI Voice Receptionist</h3>
+                <div class="p-6 flex-grow flex flex-col text-left">
+                    <h3 class="text-xl md:text-2xl font-extrabold text-white tracking-tight mb-2">LocalBiz AI Voice Receptionist</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
                         An app that sets up an AI voice agent to handle calls for local plumbers, electricians, etc., booking appointments directly into their calendar.
                     </p>
                     <div class="mt-auto flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-2xl font-black text-white">$4,000 - $10,000</span>
-                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform">View Deal →</span>
+                        <span class="text-xl md:text-2xl font-black text-white">$4,000 - $10,000</span>
+                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base">View Deal →</span>
                     </div>
                 </div>
             </a>
@@ -76,14 +78,14 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent opacity-60"></div>
                 </div>
                 
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white tracking-tight mb-2">AI UGC Video Generator for Ads</h3>
+                <div class="p-6 flex-grow flex flex-col text-left">
+                    <h3 class="text-xl md:text-2xl font-extrabold text-white tracking-tight mb-2">AI UGC Video Generator for Ads</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
                         App that takes a product URL and generates a 'TikTok-style' review video using AI avatars for instant social media ad deployment.
                     </p>
                     <div class="mt-auto flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-2xl font-black text-white">$4,000 - $10,000</span>
-                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform">View Deal →</span>
+                        <span class="text-xl md:text-2xl font-black text-white">$4,000 - $10,000</span>
+                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base">View Deal →</span>
                     </div>
                 </div>
             </a>
@@ -94,14 +96,14 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent opacity-60"></div>
                 </div>
                 
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white tracking-tight mb-2">AI Real Estate Photo Enhancer</h3>
+                <div class="p-6 flex-grow flex flex-col text-left">
+                    <h3 class="text-xl md:text-2xl font-extrabold text-white tracking-tight mb-2">AI Real Estate Photo Enhancer</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
                         An app for realtors that uses AI to instantly stage empty rooms and fix lighting in property photos directly from their phone.
                     </p>
                     <div class="mt-auto flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-2xl font-black text-white">$4,000 - $10,000</span>
-                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform">View Deal →</span>
+                        <span class="text-xl md:text-2xl font-black text-white">$4,000 - $10,000</span>
+                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base">View Deal →</span>
                     </div>
                 </div>
             </a>
@@ -112,14 +114,14 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent opacity-60"></div>
                 </div>
                 
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white tracking-tight mb-2">Automated AI Podcast Editor</h3>
+                <div class="p-6 flex-grow flex flex-col text-left">
+                    <h3 class="text-xl md:text-2xl font-extrabold text-white tracking-tight mb-2">Automated AI Podcast Editor</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
                         Tool that automatically removes filler words, levels audio, and generates show notes and social snippets from raw podcast recordings.
                     </p>
                     <div class="mt-auto flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-2xl font-black text-white">$4,000 - $10,000</span>
-                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform">View Deal →</span>
+                        <span class="text-xl md:text-2xl font-black text-white">$4,000 - $10,000</span>
+                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base">View Deal →</span>
                     </div>
                 </div>
             </a>
@@ -130,14 +132,14 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent opacity-60"></div>
                 </div>
                 
-                <div class="p-6 flex-grow flex flex-col">
-                    <h3 class="text-2xl font-extrabold text-white tracking-tight mb-2">AI Legal Contract Reviewer for Freelancers</h3>
+                <div class="p-6 flex-grow flex flex-col text-left">
+                    <h3 class="text-xl md:text-2xl font-extrabold text-white tracking-tight mb-2">AI Legal Contract Reviewer for Freelancers</h3>
                     <p class="text-slate-400 text-sm leading-relaxed mb-8 line-clamp-3">
                         A lightweight tool that scans contracts and highlights risky clauses for freelancers, suggesting safer alternative wording in seconds.
                     </p>
                     <div class="mt-auto flex justify-between items-center border-t border-white/5 pt-4">
-                        <span class="text-2xl font-black text-white">$4,000 - $10,000</span>
-                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform">View Deal →</span>
+                        <span class="text-xl md:text-2xl font-black text-white">$4,000 - $10,000</span>
+                        <span class="text-blue-400 font-bold group-hover:translate-x-2 transition-transform text-sm md:text-base">View Deal →</span>
                     </div>
                 </div>
             </a>
